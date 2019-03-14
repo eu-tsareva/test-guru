@@ -44,3 +44,6 @@ User.create([
   { name: 'Jane', email: 'Jane@email.com' },
   { name: 'Tim', email: 'Tim@email.com' }
 ])
+
+User.first.quizzes = Quiz.order(:id).limit(3)
+User.second.quizzes = Quiz.all
