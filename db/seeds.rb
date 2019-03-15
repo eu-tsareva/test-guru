@@ -7,35 +7,35 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Category.create([
+categories = Category.create([
   { title: 'Frontend' },
-  { title: 'Backend'},
+  { title: 'Backend' },
   { title: 'Machine Learning' },
   { title: 'Mobile Development' }
 ])
 
-Quiz.create([
-  { title: 'HTML', category_id: 1, level: 0 },
-  { title: 'CSS', category_id: 1, level: 0 },
-  { title: 'JS', category_id: 1, level: 1 },
-  { title: 'Ruby', category_id: 2, level: 1 },
-  { title: 'Ruby on Rails', category_id: 2, level: 2 },
-  { title: 'Python', category_id: 3, level: 1 },
-  { title: 'Android', category_id: 4, level: 2 }
+quizzes = Quiz.create([
+  { title: 'HTML', category_id: categories[0].id, level: 0 },
+  { title: 'CSS', category_id: categories[0].id, level: 0 },
+  { title: 'JS', category_id: categories[0].id, level: 1 },
+  { title: 'Ruby', category_id: categories[1].id, level: 1 },
+  { title: 'Ruby on Rails', category_id: categories[1].id, level: 2 },
+  { title: 'Python', category_id: categories[2].id, level: 1 },
+  { title: 'Android', category_id: categories[3].id, level: 2 }
 ])
 
-Question.create([
-  { body: 'What does HTML stand for?', quiz_id: '1' },
-  { body: 'What does CSS stand for?', quiz_id: '2' },
-  { body: 'Inside which HTML element do we put the JavaScript?', quiz_id: '3' },
-  { body: 'How do you insert COMMENTS in Python code?', quiz_id: '6' }
+questions = Question.create([
+  { body: 'What does HTML stand for?', quiz_id: quizzes[0].id },
+  { body: 'What does CSS stand for?', quiz_id: quizzes[1].id },
+  { body: 'Inside which HTML element do we put the JavaScript?', quiz_id: quizzes[2].id },
+  { body: 'How do you insert COMMENTS in Python code?', quiz_id: quizzes[5].id }
 ])
 
 Answer.create([
-  { body: 'Hare Tiger Moose Lion', question_id: 1, correct: false },
-  { body: 'Cake Spagetti Soup', question_id: 2, correct: false },
-  { body: '<js>', question_id: 3, correct: false },
-  { body: '#This is a comment', question_id: 4, correct: true }
+  { body: 'Hare Tiger Moose Lion', question_id: questions[0].id, correct: false },
+  { body: 'Cake Spagetti Soup', question_id: questions[1].id, correct: false },
+  { body: '<js>', question_id: questions[2].id, correct: false },
+  { body: '#This is a comment', question_id: questions[3].id, correct: true }
 ])
 
 User.create([
@@ -45,5 +45,5 @@ User.create([
   { name: 'Tim', email: 'Tim@email.com' }
 ])
 
-User.first.quizzes = Quiz.order(:id).limit(3)
-User.second.quizzes = Quiz.all
+User.first.quizzes = quizzes[0..3]
+User.second.quizzes = quizzes

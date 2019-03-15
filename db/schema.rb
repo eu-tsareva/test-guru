@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_14_202050) do
+ActiveRecord::Schema.define(version: 2019_03_15_083024) do
 
   create_table "answers", force: :cascade do |t|
     t.text "body", null: false
@@ -45,10 +45,9 @@ ActiveRecord::Schema.define(version: 2019_03_14_202050) do
   end
 
   create_table "quizzes_users", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "quiz_id"
-    t.index ["quiz_id"], name: "index_quizzes_users_on_quiz_id"
-    t.index ["user_id"], name: "index_quizzes_users_on_user_id"
+    t.integer "quiz_id", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id", "quiz_id"], name: "index_quizzes_users_on_user_id_and_quiz_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
