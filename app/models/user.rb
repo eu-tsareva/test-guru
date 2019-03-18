@@ -4,4 +4,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true
+
+  def quizzes_by_level(level)
+    quizzes.where(level: level)
+  end
 end
