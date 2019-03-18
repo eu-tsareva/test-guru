@@ -6,6 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+users = User.create([
+  { name: 'Bob', email: 'Bob@email.com' },
+  { name: 'Alice', email: 'Alice@email.com' },
+  { name: 'Jane', email: 'Jane@email.com' },
+  { name: 'Tim', email: 'Tim@email.com' }
+])
 
 categories = Category.create([
   { title: 'Frontend' },
@@ -15,13 +21,13 @@ categories = Category.create([
 ])
 
 quizzes = Quiz.create([
-  { title: 'HTML', category_id: categories[0].id, level: 0 },
-  { title: 'CSS', category_id: categories[0].id, level: 0 },
-  { title: 'JS', category_id: categories[0].id, level: 1 },
-  { title: 'Ruby', category_id: categories[1].id, level: 1 },
-  { title: 'Ruby on Rails', category_id: categories[1].id, level: 2 },
-  { title: 'Python', category_id: categories[2].id, level: 1 },
-  { title: 'Android', category_id: categories[3].id, level: 2 }
+  { title: 'HTML', category_id: categories[0].id, level: 0, creator_id: users.last.id },
+  { title: 'CSS', category_id: categories[0].id, level: 0, creator_id: users.last.id },
+  { title: 'JS', category_id: categories[0].id, level: 1, creator_id: users.last.id },
+  { title: 'Ruby', category_id: categories[1].id, level: 1, creator_id: users.last.id },
+  { title: 'Ruby on Rails', category_id: categories[1].id, level: 2, creator_id: users.last.id },
+  { title: 'Python', category_id: categories[2].id, level: 1, creator_id: users.last.id },
+  { title: 'Android', category_id: categories[3].id, level: 2, creator_id: users.last.id }
 ])
 
 questions = Question.create([
@@ -38,12 +44,7 @@ Answer.create([
   { body: '#This is a comment', question_id: questions[3].id, correct: true }
 ])
 
-User.create([
-  { name: 'Bob', email: 'Bob@email.com' },
-  { name: 'Alice', email: 'Alice@email.com' },
-  { name: 'Jane', email: 'Jane@email.com' },
-  { name: 'Tim', email: 'Tim@email.com' }
-])
+
 
 User.first.quizzes = quizzes[0..3]
 User.second.quizzes = quizzes

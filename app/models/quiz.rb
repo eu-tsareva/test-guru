@@ -1,5 +1,7 @@
 class Quiz < ApplicationRecord
   belongs_to :category
+  belongs_to :creator, class_name: 'User'
+  has_many :questions
   has_and_belongs_to_many :users
 
   def self.by_category(title)
