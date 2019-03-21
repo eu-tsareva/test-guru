@@ -4,11 +4,24 @@ class Quiz < ApplicationRecord
   has_many :questions
   has_and_belongs_to_many :users
 
-  def self.by_category(title)
-    Quiz
-      .joins(:category)
-      .order(title: :desc)
+  scope :easy, -> { where(level: [0..1]) }
+  scope :medium, -> { where(level: [2..4]) }
+  scope :difficult, -> { where('level > ?', 4) }
+  scope :by_level, ->(level) { where(level: level) }
+  scope :by_category, (lambda do |title|
+    joins(:category)
       .where(categories: { title: title })
+  end)
+
+  validates :title, presence: true
+  validates :title, uniqueness: { scope: :level }
+  validates :level, numericality: { only_integer: true,
+                                    greater_than_or_equal_to: 0 }
+
+  def self.titles(category)
+    Quiz
+      .by_category(category)
+      .order(title: :desc)
       .pluck(:title)
   end
 end
