@@ -1,13 +1,15 @@
 class QuestionsController < ApplicationController
   before_action :set_question, except: %i[index new create]
-  before_action :set_quiz, only: %i[index destroy]
+  before_action :set_quiz, only: :index
+
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+
 
   def index
-    render plain: @quiz.questions.map(&:body).join("\n")
-  end
-
-  def show
-    render plain: @question.body
+    links = @quiz.questions.map do |question|
+      "<div><a href='#{question_path(question)}'>#{question.body}</a></div><br>"
+    end
+    render html: links.join('').html_safe
   end
 
   def create
@@ -20,8 +22,9 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    quiz = @question.quiz
     @question.destroy
-    redirect_to quiz_questions_path(@quiz)
+    redirect_to quiz_questions_path(quiz)
   end
 
   private
@@ -36,5 +39,9 @@ class QuestionsController < ApplicationController
 
   def question_params
     params.require(:question).permit(:quiz_id, :body)
+  end
+
+  def rescue_with_question_not_found
+    render html: '<b>Record was not found!</b>'.html_safe
   end
 end
