@@ -1,0 +1,26 @@
+<div>
+  <b>Question:</b>
+  <div><%= @question.body %></div>
+</div>
+<br>
+<div>
+  <b>Answers:</b>
+  <ul>
+    <% @question.answers.each do |answer| %>
+      <li><%= answer.body %></li>
+    <% end %>
+  </ul>
+</div>
+<br>
+<div>
+  <b>From Quiz:</b>
+  <div><%= @question.quiz.title %></div>
+</div>
+<br>
+<button>
+  <a href="<%= question_path(@question) %>"
+     data-confirm="Are you sure?"
+     data-method="delete">
+     delete question
+  </a>
+</button>

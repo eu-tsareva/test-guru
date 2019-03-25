@@ -1,0 +1,10 @@
+<% path = "/quizzes/#{params[:quiz_id]}/questions" %>
+<form action="<%= path %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <div>
+    <label for="question__body">Question:</label><br>
+    <textarea id="question__body" name="question[body]" rows=5 cols=50></textarea>
+  </div>
+  <br>
+  <input type="submit" value="Submit">
+</form>
