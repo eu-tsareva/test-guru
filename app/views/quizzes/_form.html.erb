@@ -9,10 +9,6 @@
     <%= form.number_field :level %>
   </p>
   <p>
-    <%= form.label :creator %><br>
-    <%= form.collection_select :creator_id, User.all, :id, :name, prompt: true %>
-  </p>
-  <p>
     <%= form.label :category %><br>
     <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
   </p>

@@ -7,10 +7,6 @@ class QuestionsController < ApplicationController
 
   def index
     redirect_to @quiz
-    # links = @quiz.questions.map do |question|
-    #   "<div><a href='#{question_path(question)}'>#{question.body}</a></div><br>"
-    # end
-    # render html: links.join('').html_safe
   end
 
   def new

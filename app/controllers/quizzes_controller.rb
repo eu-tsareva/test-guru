@@ -11,15 +11,12 @@ class QuizzesController < ApplicationController
 
   def create
     @quiz = Quiz.new(quiz_params)
+    @quiz.creator = current_user #fixme
     if @quiz.save
       redirect_to @quiz
     else
       render :new
     end
-  end
-
-  def show
-
   end
 
   def update
