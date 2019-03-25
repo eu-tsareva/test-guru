@@ -1,0 +1,7 @@
+<%= form_with model: [@quiz, @question] do |form| %>
+  <div>
+    <div><%= form.label :body, 'Question' %></div>
+    <%= form.text_area :body, rows: 5, cols: 50 %>
+  </div>
+  <%= form.submit 'Save' %>
+<% end %>

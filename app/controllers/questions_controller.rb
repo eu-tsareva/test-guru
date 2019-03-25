@@ -1,15 +1,20 @@
 class QuestionsController < ApplicationController
   before_action :set_question, except: %i[index new create]
-  before_action :set_quiz, only: %i[index create]
+  before_action :set_quiz, only: %i[index new create]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
 
   def index
-    links = @quiz.questions.map do |question|
-      "<div><a href='#{question_path(question)}'>#{question.body}</a></div><br>"
-    end
-    render html: links.join('').html_safe
+    redirect_to @quiz
+    # links = @quiz.questions.map do |question|
+    #   "<div><a href='#{question_path(question)}'>#{question.body}</a></div><br>"
+    # end
+    # render html: links.join('').html_safe
+  end
+
+  def new
+    @question = @quiz.questions.new
   end
 
   def create
@@ -18,6 +23,14 @@ class QuestionsController < ApplicationController
       redirect_to question
     else
       render :new
+    end
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :edit
     end
   end
 

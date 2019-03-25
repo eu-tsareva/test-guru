@@ -1,26 +1,24 @@
-<div>
-  <b>Question:</b>
-  <div><%= @question.body %></div>
-</div>
+<p><%= link_to 'all questions', quiz_questions_path(@question.quiz) %></p>
 <br>
-<div>
-  <b>Answers:</b>
-  <ul>
-    <% @question.answers.each do |answer| %>
-      <li><%= answer.body %></li>
-    <% end %>
-  </ul>
-</div>
-<br>
-<div>
-  <b>From Quiz:</b>
-  <div><%= @question.quiz.title %></div>
-</div>
-<br>
-<button>
-  <a href="<%= question_path(@question) %>"
-     data-confirm="Are you sure?"
-     data-method="delete">
-     delete question
-  </a>
-</button>
+<table style="text-align: left;" border="collapse">
+  <tr>
+    <th>Question:</th>
+    <td><%= @question.body %></td>
+  </tr>
+  <tr>
+    <th>From quiz:</th>
+    <td><%= @question.quiz.title %></td>
+  </tr>
+  <tr>
+    <th style="vertical-align: top">Answers:</th>
+    <td><ul><%= render @question.answers %></ul></td>
+  </tr>
+</table>
+
+<p>
+  <%= link_to 'edit', edit_question_path(@question) %>
+  <%= link_to 'delete',
+              question_path(@question),
+              'data-confirm': 'Are you sure?',
+              'data-method': :delete %>
+</p>
