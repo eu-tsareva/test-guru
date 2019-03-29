@@ -1,0 +1,17 @@
+<h1>Passing the <%= @quiz_passage.quiz.title %> Quiz </h1>
+
+<b>
+  <%= @quiz_passage.current_question.body %>
+</b>
+
+<%= form_with url: quiz_passage_path(@quiz_passage), local: true, method: :put do |form| %>
+  <%= form.collection_check_boxes :answer_ids, @quiz_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
+    <p>
+      <%= b.label do %>
+        <%= b.check_box %>
+        <%= b.object.body %>
+      <% end %>
+    </p>
+  <% end %>
+  <%= form.submit 'Next' %>
+<% end %>
