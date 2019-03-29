@@ -1,3 +1,20 @@
 // Place all the styles related to the quiz_passages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.quiz__result {
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.quiz__score {
+  font-size: 1.5em;
+
+  &--success { color: #088e02; }
+  &--fail { color: #e4001c; }
+}
+
+.quiz__message {
+  font-size: 1.3rem;
+  font-weight: 600;
+}

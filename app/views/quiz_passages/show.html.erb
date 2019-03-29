@@ -1,6 +1,10 @@
 <h1>Passing the <%= @quiz_passage.quiz.title %> Quiz </h1>
-
-<b>
+<p>
+  Question
+  <b><%= @quiz_passage.current_question.position %></b>
+  out of
+  <b><%= @quiz_passage.quiz.questions.count %></b>
+</p>
   <%= @quiz_passage.current_question.body %>
 </b>
 
