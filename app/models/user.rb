@@ -3,8 +3,7 @@ class User < ApplicationRecord
   has_many :quiz_passages
   has_many :quizzes, through: :quiz_passages
 
-  validates :name, presence: true
-  validates :email, presence: true
+  has_secure_password
 
   def quizzes_by_level(level)
     quizzes.where(level: level)
@@ -13,4 +12,5 @@ class User < ApplicationRecord
   def quiz_passage(quiz)
     quiz_passages.order(id: :desc).find_by(quiz_id: quiz.id)
   end
+
 end

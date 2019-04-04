@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
   root 'quizzes#index'
 
   resources :quizzes do
@@ -11,4 +12,10 @@ Rails.application.routes.draw do
   resources :quiz_passages, only: %i[show update] do
     get 'result', on: :member
   end
+
+  resources :users, only: :create
+  get :signup, to: 'users#new'
+
+  resources :sessions, only: :create
+  get :login, to: 'sessions#new'
 end

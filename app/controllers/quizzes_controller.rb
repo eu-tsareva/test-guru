@@ -1,4 +1,5 @@
 class QuizzesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_quiz, only: %i[show edit update destroy start]
   before_action :set_user, only: %i[start create]
 
