@@ -32,19 +32,26 @@ quizzes = Quiz.create([
 
 questions = Question.create([
   { body: 'What does HTML stand for?', quiz_id: quizzes[0].id },
+  { body: 'Who is making the Web standards?', quiz_id: quizzes[0].id },
+  { body: 'Choose the correct HTML element for the largest heading:', quiz_id: quizzes[0].id },
   { body: 'What does CSS stand for?', quiz_id: quizzes[1].id },
   { body: 'Inside which HTML element do we put the JavaScript?', quiz_id: quizzes[2].id },
   { body: 'How do you insert COMMENTS in Python code?', quiz_id: quizzes[5].id }
 ])
 
 Answer.create([
-  { body: 'Hare Tiger Moose Lion', question_id: questions[0].id, correct: false },
-  { body: 'Cake Spagetti Soup', question_id: questions[1].id, correct: false },
-  { body: '<js>', question_id: questions[2].id, correct: false },
-  { body: '#This is a comment', question_id: questions[3].id, correct: true }
+  { body: 'Hyper Text Markup Language', question_id: questions[0].id, correct: true },
+  { body: 'Home Tool Markup Language', question_id: questions[0].id, correct: false },
+  { body: 'Hyperlinks and Text Markup Language', question_id: questions[0].id, correct: false },
+  { body: 'The World Wide Web Consortium', question_id: questions[1].id, correct: true },
+  { body: 'Microsoft', question_id: questions[1].id, correct: false },
+  { body: 'Google', question_id: questions[1].id, correct: false },
+  { body: 'Mozilla', question_id: questions[1].id, correct: false },
+  { body: '<heading>', question_id: questions[2].id, correct: false },
+  { body: '<head>', question_id: questions[2].id, correct: false },
+  { body: '<h1>', question_id: questions[2].id, correct: true },
+  { body: '<h6>', question_id: questions[2].id, correct: false }
 ])
-
-
 
 User.first.quizzes = quizzes[0..3]
 User.second.quizzes = quizzes

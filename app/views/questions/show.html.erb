@@ -1,19 +1,14 @@
-<p><%= link_to 'all questions', quiz_questions_path(@question.quiz) %></p>
-<br>
-<table style="text-align: left;" border="collapse">
-  <tr>
-    <th>Question:</th>
-    <td><%= @question.body %></td>
-  </tr>
-  <tr>
-    <th>From quiz:</th>
-    <td><%= @question.quiz.title %></td>
-  </tr>
-  <tr>
-    <th style="vertical-align: top">Answers:</th>
-    <td><ul><%= render @question.answers %></ul></td>
-  </tr>
-</table>
+<h1><%= @question.quiz.title %> question</h1>
+
+<p><%= link_to 'all questions', quiz_path(@question.quiz) %></p>
+
+<p><%= @question.body %></p>
+
+<h2>Answers</h2>
+<%= link_to 'New answer', new_question_answer_path(@question) %>
+<ol>
+  <%= render @question.answers %>
+</ol>
 
 <p>
   <%= link_to 'edit', edit_question_path(@question) %>

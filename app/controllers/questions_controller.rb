@@ -4,17 +4,13 @@ class QuestionsController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-
-  def index
-    redirect_to @quiz
-  end
-
   def new
     @question = @quiz.questions.new
   end
 
   def create
     @question = @quiz.questions.new(question_params)
+
     if @question.save
       redirect_to @question
     else
@@ -32,7 +28,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to quiz_questions_path(@question.quiz)
+    redirect_to @question.quiz
   end
 
   private

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_18_103115) do
+ActiveRecord::Schema.define(version: 2019_03_29_041225) do
 
   create_table "answers", force: :cascade do |t|
     t.text "body", null: false
@@ -35,6 +35,18 @@ ActiveRecord::Schema.define(version: 2019_03_18_103115) do
     t.index ["quiz_id"], name: "index_questions_on_quiz_id"
   end
 
+  create_table "quiz_passages", force: :cascade do |t|
+    t.integer "quiz_id"
+    t.integer "user_id"
+    t.integer "current_question_id"
+    t.integer "correct_questions", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["current_question_id"], name: "index_quiz_passages_on_current_question_id"
+    t.index ["quiz_id"], name: "index_quiz_passages_on_quiz_id"
+    t.index ["user_id"], name: "index_quiz_passages_on_user_id"
+  end
+
   create_table "quizzes", force: :cascade do |t|
     t.string "title", null: false
     t.integer "level", null: false
@@ -45,12 +57,6 @@ ActiveRecord::Schema.define(version: 2019_03_18_103115) do
     t.index ["category_id"], name: "index_quizzes_on_category_id"
     t.index ["creator_id"], name: "index_quizzes_on_creator_id"
     t.index ["title", "level"], name: "index_quizzes_on_title_and_level", unique: true
-  end
-
-  create_table "quizzes_users", id: false, force: :cascade do |t|
-    t.integer "quiz_id", null: false
-    t.integer "user_id", null: false
-    t.index ["user_id", "quiz_id"], name: "index_quizzes_users_on_user_id_and_quiz_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
