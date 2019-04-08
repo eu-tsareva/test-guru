@@ -1,19 +1,15 @@
 <h1>You finished <%= @quiz_passage.quiz.title %> Test!</h1>
 <hr>
-<% result = @quiz_passage.successful? ? 'success' : 'fail' %>
+<% successful = @quiz_passage.successful? %>
 <p class="quiz__result">
   Your score is:
-  <span class="quiz__score quiz__score--<%= result %>">
+  <span class="quiz__score quiz__score--<%= successful ? 'success' : 'fail' %>">
     <%= number_to_percentage(@quiz_passage.score, precision: 0) %>
   </span>
 </p>
 
 <p class="quiz__message">
-  <% if result == 'success' %>
-    You Passed!
-  <% else %>
-    You Failed :(
-  <% end %>
+  <% successful ? 'You Passed!' : 'You Failed :(' %>
 </p>
 
 <%= link_to 'back to tests', quizzes_path %>
