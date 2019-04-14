@@ -1,6 +1,5 @@
-<h1>Question</h1>
-<p><%= @answer.question.body %></p>
-<%= link_to 'Back', question_path(@answer.question) %>
+<%= link_to 'Back', admin_question_path(@answer.question) %>
+<h2>Question: <%= @answer.question.body %></h2>
 <p>
   <b>Answer: </b>
   <%= @answer.body %>
@@ -9,9 +8,9 @@
   <b>Correct: </b>
   <%= @answer.correct %>
 </p>
-<%= link_to 'Edit', edit_answer_path(@answer) %> |
+<%= link_to 'Edit', edit_admin_answer_path(@answer) %> |
 <%= link_to 'Delete',
-            answer_path(@answer),
+            admin_answer_path(@answer),
             'data-confirm': 'Are you sure?',
             'data-method': :delete %>
 

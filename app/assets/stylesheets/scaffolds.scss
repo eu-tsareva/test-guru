@@ -19,8 +19,8 @@ pre {
   font-size: 11px;
 }
 
-main {
-  padding: 0 40px;
+form:not(.button_to) {
+  margin: 20px 0;
 }
 
 a {
@@ -52,6 +52,11 @@ div {
 
 label {
   display: block;
+}
+
+.container {
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 #notice {

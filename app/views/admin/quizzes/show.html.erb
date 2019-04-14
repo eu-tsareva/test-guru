@@ -12,15 +12,10 @@
   <tr>
     <th style="vertical-align: top">Questions: </th>
     <td>
-      <%
-=begin%>
- <table><%= render @quiz.questions %></table>
-<%
-=end%>
-      <table><%= render partial: 'questions/question', collection: @quiz.questions %></table>
+      <table><%= render @quiz.questions %></table>
       <br>
       <button>
-        <%= link_to 'add question', new_quiz_question_path(@quiz) %>
+        <%= link_to 'add question', new_admin_quiz_question_path(@quiz) %>
       </button>
     </td>
   </tr>

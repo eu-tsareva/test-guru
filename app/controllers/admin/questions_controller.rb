@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::BaseController
   before_action :set_question, except: %i[index new create]
   before_action :set_quiz, only: %i[index new create]
 
@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
     @question = @quiz.questions.new(question_params)
 
     if @question.save
-      redirect_to @question
+      redirect_to admin_question_path(@question)
     else
       render :new
     end
@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to @question
+      redirect_to admin_question_path(@question)
     else
       render :edit
     end
@@ -28,7 +28,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to @question.quiz
+    redirect_to admin_quiz_path(@question.quiz)
   end
 
   private

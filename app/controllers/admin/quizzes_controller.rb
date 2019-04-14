@@ -13,7 +13,7 @@ class Admin::QuizzesController < Admin::BaseController
     @quiz = Quiz.new(quiz_params)
     @quiz.creator = current_user
     if @quiz.save
-      redirect_to @quiz
+      redirect_to admin_quiz_path(@quiz)
     else
       render :new
     end
@@ -21,7 +21,7 @@ class Admin::QuizzesController < Admin::BaseController
 
   def update
     if @quiz.update(quiz_params)
-      redirect_to @quiz
+      redirect_to admin_quiz_path(@quiz)
     else
       render :edit
     end
@@ -29,7 +29,7 @@ class Admin::QuizzesController < Admin::BaseController
 
   def destroy
     @quiz.destroy
-    redirect_to quizzes_path
+    redirect_to admin_quizzes_path
   end
 
   def start

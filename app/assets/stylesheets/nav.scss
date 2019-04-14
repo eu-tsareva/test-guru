@@ -1,16 +1,24 @@
+.header {
+  margin-bottom: 40px;
+  color: #4a4a4a;
+  background: #fff;
+  border-bottom: 1px solid #dcdcdc;
+
+  &--admin {
+    background: #4293e6;
+    color: #fff;
+    border-bottom: 1px solid #4293e6;
+  }
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 60px;
-  padding: 0 40px;
-  border-bottom: 1px solid #dcdcdc;
+
 }
 
-.nav--admin {
-  background: #4293e6;
-  color: #fff;
-}
 
 .nav__logo {
   font-size: 2em;
@@ -18,16 +26,8 @@
   line-height: 1;
   text-decoration: none;
   text-transform: uppercase;
-  color: #4a4a4a;
-  &:hover {
-    background: none;
-    color: #4a4a4a;
-  }
-}
-
-.nav--admin .nav__logo,
-.nav--admin .nav__logo:hover {
-  color: #fff
+  color: inherit;
+  &:hover { background: none; }
 }
 
 .nav__list {
