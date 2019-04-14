@@ -10,8 +10,7 @@ class QuizzesController < ApplicationController
   end
 
   def create
-    @quiz = Quiz.new(quiz_params)
-    @quiz.creator = @current_user
+    @quiz = current_user.created_quizzes.new(quiz_params)
     if @quiz.save
       redirect_to @quiz
     else
@@ -33,8 +32,8 @@ class QuizzesController < ApplicationController
   end
 
   def start
-    @current_user.quizzes.push(@quiz)
-    redirect_to @current_user.quiz_passage(@quiz)
+    current_user.quizzes.push(@quiz)
+    redirect_to current_user.quiz_passage(@quiz)
   end
 
   private

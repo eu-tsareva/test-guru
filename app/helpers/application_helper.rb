@@ -7,9 +7,11 @@ module ApplicationHelper
     link_to repo, "https://github.com/#{author}/#{repo}", target: 'blank'
   end
 
-  def flash_alert
-    return unless flash[:alert]
-
-    content_tag :p, flash[:alert], class: 'flash alert'
+  def flash_message
+    flashes = []
+    flash.each do |key, message|
+      flashes.push content_tag :p, message, class: "flash #{key}"
+    end
+    flashes.join.html_safe
   end
 end
