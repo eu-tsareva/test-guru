@@ -3,7 +3,13 @@
   justify-content: space-between;
   align-items: center;
   height: 60px;
+  padding: 0 40px;
   border-bottom: 1px solid #dcdcdc;
+}
+
+.nav--admin {
+  background: #4293e6;
+  color: #fff;
 }
 
 .nav__logo {
@@ -19,6 +25,11 @@
   }
 }
 
+.nav--admin .nav__logo,
+.nav--admin .nav__logo:hover {
+  color: #fff
+}
+
 .nav__list {
   display: flex;
   justify-content: flex-end;
@@ -30,4 +41,8 @@
 .nav__item {
   margin-left: 20px;
   a { text-decoration: none; }
+}
+
+.nav__link {
+  color: inherit !important;
 }

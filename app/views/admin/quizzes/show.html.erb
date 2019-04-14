@@ -1,4 +1,4 @@
-<div><%= link_to 'all tests', quizzes_path %></div>
+<div><%= link_to 'all tests', admin_quizzes_path %></div>
 <h1><%= @quiz.title %></h1>
 <table style="text-align: left">
   <tr>
@@ -12,7 +12,12 @@
   <tr>
     <th style="vertical-align: top">Questions: </th>
     <td>
-      <table><%= render @quiz.questions %></table>
+      <%
+=begin%>
+ <table><%= render @quiz.questions %></table>
+<%
+=end%>
+      <table><%= render partial: 'questions/question', collection: @quiz.questions %></table>
       <br>
       <button>
         <%= link_to 'add question', new_quiz_question_path(@quiz) %>
@@ -21,3 +26,5 @@
   </tr>
 </table>
 
+<%= link_to 'Edit', edit_admin_quiz_path(@quiz) %>
+<%= link_to 'Back', admin_quizzes_path %>
