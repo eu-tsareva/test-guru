@@ -10,8 +10,7 @@ class Admin::QuizzesController < Admin::BaseController
   end
 
   def create
-    @quiz = Quiz.new(quiz_params)
-    @quiz.creator = current_user
+    @quiz = current_user.created_quizzes.new(quiz_params)
     if @quiz.save
       redirect_to admin_quiz_path(@quiz)
     else
@@ -30,11 +29,6 @@ class Admin::QuizzesController < Admin::BaseController
   def destroy
     @quiz.destroy
     redirect_to admin_quizzes_path
-  end
-
-  def start
-    current_user.quizzes.push(@quiz)
-    redirect_to current_user.quiz_passage(@quiz)
   end
 
   private
