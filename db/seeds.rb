@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = User.create([
-  { name: 'Bob', email: 'Bob@email.com' },
-  { name: 'Alice', email: 'Alice@email.com' },
-  { name: 'Jane', email: 'Jane@email.com' },
-  { name: 'Tim', email: 'Tim@email.com' }
+  { name: 'Bob', email: 'Bob@email.com', password: '123456' },
+  { name: 'Alice', email: 'Alice@email.com', password: '123456' },
+  { name: 'Jane', email: 'Jane@email.com', password: '123456' },
+  { name: 'Tim', email: 'Tim@email.com', password: '123456' }
 ])
 
 categories = Category.create([
