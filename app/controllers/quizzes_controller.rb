@@ -1,6 +1,5 @@
 class QuizzesController < ApplicationController
   before_action :set_quiz, only: %i[show edit update destroy start]
-  before_action :set_user, only: %i[start create]
 
   def index
     @quizzes = Quiz.all
@@ -11,8 +10,7 @@ class QuizzesController < ApplicationController
   end
 
   def create
-    @quiz = Quiz.new(quiz_params)
-    @quiz.creator = @user
+    @quiz = current_user.created_quizzes.new(quiz_params)
     if @quiz.save
       redirect_to @quiz
     else
@@ -34,18 +32,14 @@ class QuizzesController < ApplicationController
   end
 
   def start
-    @user.quizzes.push(@quiz)
-    redirect_to @user.quiz_passage(@quiz)
+    current_user.quizzes.push(@quiz)
+    redirect_to current_user.quiz_passage(@quiz)
   end
 
   private
 
   def set_quiz
     @quiz = Quiz.find(params[:id])
-  end
-
-  def set_user
-    @user = User.first
   end
 
   def quiz_params
