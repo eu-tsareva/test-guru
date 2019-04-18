@@ -6,6 +6,10 @@ en:
   edit: 'Edit'
   delete: 'Delete'
   confirm: 'Are you sure?'
+  sign_up: 'Sign up'
+  log_in: 'Log in'
+  log_out: 'Log out'
+  welcome_html: 'Welcome, <b>%{email}</b> Guru!'
 
   helpers:
     label:
@@ -13,10 +17,18 @@ en:
         title: 'Title'
         level: 'Level'
         category: 'Category'
+      user:
+        password: 'Password'
+        password_confirmation: 'Password confirmation'
+        remember_me: 'Remember me'
+        first_name: 'First name'
+        last_name: 'Last name'
     submit:
       quiz:
         create: 'Create Test'
         update: 'Update Test'
+    select:
+      prompt: 'Please select'
 
   quizzes:
     title: 'Title'
@@ -48,3 +60,20 @@ en:
         heading: 'Edit Test'
       new:
         heading: 'New Test'
+    nav:
+      heading: 'Admin Panel'
+  devise:
+    registrations:
+      new:
+        heading: 'Become a Guru'
+    sessions:
+      new:
+        heading: 'Enter the Guru Gates'
+        enter: 'Enter'
+    shared:
+      links:
+        forgot_pass: 'Forgot your password?'
+        not_received: "Didn't receive confirmation instructions?"
+  sessions:
+    create:
+      hello: 'Hello, %{name}!'

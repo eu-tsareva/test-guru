@@ -6,6 +6,10 @@ ru:
   edit: 'Редактировать'
   delete: 'Удалить'
   confirm: 'Вы уверены?'
+  sign_up: 'Зарегестрироваться'
+  log_in: 'Войти'
+  log_out: 'Выйти'
+  welcome_html: 'Добро пожаловать, <b>%{email}</b>!'
 
   helpers:
     label:
@@ -13,10 +17,18 @@ ru:
         title: 'Название'
         level: 'Сложность'
         category: 'Категория'
+      user:
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        remember_me: 'Запомнить меня'
+        first_name: 'Имя'
+        last_name: 'Фамилия'
     submit:
       quiz:
         create: 'Создать тест'
         update: 'Обновить тест'
+    select:
+      prompt: 'Выберите'
 
   quizzes:
     title: 'Название'
@@ -48,6 +60,23 @@ ru:
         heading: 'Редактирование теста'
       new:
         heading: 'Создание теста'
+    nav:
+      heading: 'Панель администратора'
+  devise:
+    registrations:
+      new:
+        heading: 'Стань Гуру'
+    sessions:
+      new:
+        heading: 'Войти во врата Гуру!'
+        enter: 'Войти'
+    shared:
+      links:
+        forgot_pass: 'Забыли пароль?'
+        not_received: 'Не получили инструкции для подтверждения учетной записи?'
+  sessions:
+    create:
+      hello: 'Здравствуй, %{name}!'
 
 
 
