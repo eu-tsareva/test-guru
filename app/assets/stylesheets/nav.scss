@@ -27,7 +27,10 @@
   text-decoration: none;
   text-transform: uppercase;
   color: inherit;
-  &:hover { background: none; }
+  &:hover {
+    background: none;
+    color: inherit;
+  }
 }
 
 .nav__list {

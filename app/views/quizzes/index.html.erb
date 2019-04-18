@@ -1,10 +1,10 @@
-<h1>Tricky Tests</h1>
+<h1><%= t '.heading' %></h1>
 <table style="text-align: left">
   <tr>
-    <th>Title</th>
-    <th>Level</th>
-    <th>Questions</th>
-    <th>Actions</th>
+    <th><%= t 'quizzes.title' %></th>
+    <th><%= t 'quizzes.level' %></th>
+    <th><%= t 'quizzes.questions' %></th>
+    <th><%= t :actions %></th>
   </tr>
   <%= render @quizzes %>
 </table>

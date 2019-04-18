@@ -2,12 +2,12 @@
   <td><%= quiz.title %></td>
   <td><%= quiz.level %></td>
   <td><%= quiz.questions.count %></td>
-  <td><%= link_to 'show', admin_quiz_path(quiz) %></td>
-  <td><%= link_to 'edit', edit_admin_quiz_path(quiz) %></td>
+  <td><%= link_to t(:show), admin_quiz_path(quiz) %></td>
+  <td><%= link_to t(:edit), edit_admin_quiz_path(quiz) %></td>
   <td>
-    <%= link_to 'delete',
+    <%= link_to t(:delete),
                 admin_quiz_path(quiz),
-                'data-confirm': 'Are you sure?',
+                'data-confirm': t(:confirm),
                 'data-method': :delete %>
   </td>
 </tr>

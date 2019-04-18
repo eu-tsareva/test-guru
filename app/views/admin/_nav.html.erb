@@ -1,13 +1,13 @@
 <header class='header header--admin'>
   <div class='container'>
     <div class='nav'>
-      <span class='nav__logo'>TestGuru Admin Panel</span>
+      <span class='nav__logo'>Test Guru. <%= t '.heading' %></span>
       <ul class='nav__list'>
         <li class='nav__item'>
-          Welcome, <b><%= current_user.email %></b> Guru |
+          <%= t 'welcome_html', email: current_user.email %>
         </li>
         <li class='nav__item'>
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav__link' %>
+          <%= link_to t(:log_out), destroy_user_session_path, method: :delete, class: 'nav__link' %>
         </li>
       </ul>
     </div>
