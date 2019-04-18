@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
   root 'quizzes#index'
 
-  resources :quizzes do
-    resources :questions, shallow: true, except: :index do
-      resources :answers, shallow: true, except: :index
-    end
+  devise_for :users,
+    path: :gurus,
+    path_names: { sign_in: :login, sign_out: :logout },
+    controllers: { sessions: :sessions, registrations: :registrations }
+
+  resources :quizzes, only: :index do
     post 'start', on: :member
   end
 
@@ -13,10 +14,11 @@ Rails.application.routes.draw do
     get 'result', on: :member
   end
 
-  resources :users, only: :create
-  get :signup, to: 'users#new'
-
-  resources :sessions, only: :create
-  get :login, to: 'sessions#new'
-  delete :logout, to: 'sessions#destroy'
+  namespace :admin do
+    resources :quizzes do
+      resources :questions, shallow: true, except: :index do
+        resources :answers, shallow: true, except: :index
+      end
+    end
+  end
 end

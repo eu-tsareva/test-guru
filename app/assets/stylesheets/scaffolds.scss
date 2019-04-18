@@ -1,7 +1,7 @@
 body {
   background-color: #fff;
   color: #333;
-  margin: 33px;
+  margin: 0;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -17,6 +17,10 @@ pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
+}
+
+form:not(.button_to) {
+  margin: 20px 0;
 }
 
 a {
@@ -48,6 +52,11 @@ div {
 
 label {
   display: block;
+}
+
+.container {
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 #notice {

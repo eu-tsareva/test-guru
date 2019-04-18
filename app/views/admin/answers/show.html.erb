@@ -1,0 +1,16 @@
+<%= link_to 'Back', admin_question_path(@answer.question) %>
+<h2>Question: <%= @answer.question.body %></h2>
+<p>
+  <b>Answer: </b>
+  <%= @answer.body %>
+</p>
+<p>
+  <b>Correct: </b>
+  <%= @answer.correct %>
+</p>
+<%= link_to 'Edit', edit_admin_answer_path(@answer) %> |
+<%= link_to 'Delete',
+            admin_answer_path(@answer),
+            'data-confirm': 'Are you sure?',
+            'data-method': :delete %>
+

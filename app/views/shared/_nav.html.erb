@@ -1,23 +1,25 @@
-<header>
-  <nav class='nav'>
-  <%= link_to 'Test Guru', root_path, class: 'nav__logo' %>
-    <ul class='nav__list'>
-      <% unless logged_in? %>
-        <li class='nav__item'>
-          <%= link_to 'sign up', signup_path %>
-        </li>
-        <li class='nav__item'>
-          <%= link_to 'log in', login_path %>
-        </li>
-      <% end %>
-      <% if logged_in? %>
-        <li class='nav__item'>
-          <span>Welcome, <b><%= current_user.email %></b> Guru</span>
-        </li>
-        <li class='nav__item'>
-          <%= link_to 'log out', logout_path, method: :delete %>
-        </li>
-      <% end %>
-    </ul>
-  </nav>
+<header class='header'>
+  <div class='container'>
+    <nav class='nav'>
+    <%= link_to 'Test Guru', root_path, class: 'nav__logo' %>
+      <ul class='nav__list'>
+        <% unless user_signed_in? %>
+          <li class='nav__item'>
+            <%= link_to 'Sign up', new_user_registration_path %>
+          </li>
+          <li class='nav__item'>
+            <%= link_to 'Log in', new_user_session_path %>
+          </li>
+        <% end %>
+        <% if user_signed_in? %>
+          <li class='nav__item'>
+            <span>Welcome, <b><%= current_user.email %></b> Guru</span>
+          </li>
+          <li class='nav__item'>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
 </header>

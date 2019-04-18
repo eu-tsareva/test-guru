@@ -1,0 +1,15 @@
+<header class='header header--admin'>
+  <div class='container'>
+    <div class='nav'>
+      <span class='nav__logo'>TestGuru Admin Panel</span>
+      <ul class='nav__list'>
+        <li class='nav__item'>
+          Welcome, <b><%= current_user.email %></b> Guru |
+        </li>
+        <li class='nav__item'>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav__link' %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
