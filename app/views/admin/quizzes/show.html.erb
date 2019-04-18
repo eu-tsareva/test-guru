@@ -1,25 +1,25 @@
-<div><%= link_to 'all tests', admin_quizzes_path %></div>
+<div><%= link_to t(:back), admin_quizzes_path %></div>
 <h1><%= @quiz.title %></h1>
 <table style="text-align: left">
   <tr>
-    <th>Category: </th>
+    <th><%= t 'quizzes.category' %>:</th>
     <td><%= @quiz.category.title %></td>
   </tr>
   <tr>
-    <th>Level: </th>
+    <th><%= t 'quizzes.level' %>:</th>
     <td><%= @quiz.level %></td>
   </tr>
   <tr>
-    <th style="vertical-align: top">Questions: </th>
+    <th style="vertical-align: top"><%= t 'quizzes.questions'%>:</th>
     <td>
       <table><%= render @quiz.questions %></table>
       <br>
       <button>
-        <%= link_to 'add question', new_admin_quiz_question_path(@quiz) %>
+        <%= link_to t('.add_question'), new_admin_quiz_question_path(@quiz) %>
       </button>
     </td>
   </tr>
 </table>
 
-<%= link_to 'Edit', edit_admin_quiz_path(@quiz) %>
-<%= link_to 'Back', admin_quizzes_path %>
+<%= link_to t(:edit), edit_admin_quiz_path(@quiz) %>
+<%= link_to t(:back), admin_quizzes_path %>

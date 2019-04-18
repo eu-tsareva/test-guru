@@ -1,8 +1,8 @@
-<h1>Passing the <%= @quiz_passage.quiz.title %> Quiz </h1>
+<h1><%= t '.title', name: @quiz_passage.quiz.title %></h1>
 <p>
-  Question
+  <%= t '.question' %>
   <b><%= @quiz_passage.current_question.position %></b>
-  out of
+  <%= t '.out_of' %>
   <b><%= @quiz_passage.quiz.questions.count %></b>
 </p>
   <%= @quiz_passage.current_question.body %>
@@ -17,5 +17,5 @@
       <% end %>
     </p>
   <% end %>
-  <%= form.submit 'Next' %>
+  <%= form.submit t '.next' %>
 <% end %>

@@ -2,5 +2,5 @@
   <td><%= quiz.title %></td>
   <td><%= quiz.level %></td>
   <td><%= quiz.questions.count %></td>
-  <td><%=button_to 'start', start_quiz_path(quiz) %></td>
+  <td><%= button_to t('.start'), start_quiz_path(quiz) %></td>
 </tr>

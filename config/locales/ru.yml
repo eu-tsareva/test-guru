@@ -1,0 +1,54 @@
+ru:
+  back: 'Назад'
+  actions: 'Действия'
+  new: 'Новый'
+  show: 'Показать'
+  edit: 'Редактировать'
+  delete: 'Удалить'
+  confirm: 'Вы уверены?'
+
+  helpers:
+    label:
+      quiz:
+        title: 'Название'
+        level: 'Сложность'
+        category: 'Категория'
+    submit:
+      quiz:
+        create: 'Создать тест'
+        update: 'Обновить тест'
+
+  quizzes:
+    title: 'Название'
+    level: 'Сложность'
+    questions: 'Вопросы'
+    category: 'Категория'
+    index:
+      heading: 'Доступные тесты'
+    quiz:
+      start: 'Начать'
+  quiz_passages:
+    show:
+      title: 'Тест: %{name}'
+      question: 'Вопрос'
+      out_of: 'из'
+      next: 'Далее'
+    result:
+      title: 'Вы закончили "%{name}" тест!'
+      score: 'Ваш результат:'
+      success: 'Вы прошли!'
+      failure: 'Вы провалились! :('
+  admin:
+    quizzes:
+      index:
+        heading: 'Доступные тесты'
+      show:
+        add_question: 'Добавить вопрос'
+      edit:
+        heading: 'Редактирование теста'
+      new:
+        heading: 'Создание теста'
+
+
+
+

@@ -1,11 +1,11 @@
-<h1>Tricky Tests</h1>
-<p><%= link_to 'New test', new_admin_quiz_path %></p>
+<h1><%= t '.heading' %></h1>
+<p><%= link_to t(:new), new_admin_quiz_path %></p>
 <table style="text-align: left">
   <tr>
-    <th>Title</th>
-    <th>Level</th>
-    <th>Questions</th>
-    <th colspan='3'>Actions</th>
+    <th><%= t 'quizzes.title' %></th>
+    <th><%= t 'quizzes.level' %></th>
+    <th><%= t 'quizzes.questions' %></th>
+    <th colspan='3'><%= t :actions %></th>
   </tr>
   <%= render @quizzes %>
 </table>
