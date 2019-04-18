@@ -3,9 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   def default_url_options
-    opts = {}
-    opts[:lang] = I18n.locale if I18n.locale != I18n.default_locale
-    opts
+    I18n.locale == I18n.default_locale ? {} : { lang: I18n.locale }
   end
 
   protected
