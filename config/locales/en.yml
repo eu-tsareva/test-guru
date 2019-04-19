@@ -70,6 +70,7 @@ en:
       new:
         heading: 'Enter the Guru Gates'
         enter: 'Enter'
+        remember_me: 'Remember me'
     shared:
       links:
         forgot_pass: 'Forgot your password?'

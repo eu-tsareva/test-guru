@@ -1,9 +1,11 @@
 <nav class='navbar navbar-light bg-light'>
-  <%= link_to admin_quizzes_path, class: 'navbar-brand' do %>
-    Test Guru. <%= t '.heading' %>
-  <% end %>
-  <div class='nav'>
-    <span class='navbar-text'><%= t 'welcome_html', email: current_user.email %></span>
-    <%= link_to t(:log_out), destroy_user_session_path, method: :delete, class: 'nav-item nav-link' %>
+  <div class='container'>
+    <%= link_to admin_quizzes_path, class: 'navbar-brand' do %>
+      Test Guru. <%= t '.heading' %>
+    <% end %>
+    <div class='nav'>
+      <span class='navbar-text'><%= t 'welcome_html', email: current_user.email %></span>
+      <%= link_to t(:log_out), destroy_user_session_path, method: :delete, class: 'nav-item nav-link' %>
+    </div>
   </div>
 </nav>

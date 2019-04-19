@@ -70,6 +70,7 @@ ru:
       new:
         heading: 'Войти во врата Гуру!'
         enter: 'Войти'
+        remember_me: 'Запомнить меня'
     shared:
       links:
         forgot_pass: 'Забыли пароль?'
