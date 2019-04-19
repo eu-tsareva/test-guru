@@ -1,15 +1,9 @@
-<header class='header header--admin'>
-  <div class='container'>
-    <div class='nav'>
-      <span class='nav__logo'>Test Guru. <%= t '.heading' %></span>
-      <ul class='nav__list'>
-        <li class='nav__item'>
-          <%= t 'welcome_html', email: current_user.email %>
-        </li>
-        <li class='nav__item'>
-          <%= link_to t(:log_out), destroy_user_session_path, method: :delete, class: 'nav__link' %>
-        </li>
-      </ul>
-    </div>
+<nav class='navbar navbar-light bg-light'>
+  <%= link_to admin_quizzes_path, class: 'navbar-brand' do %>
+    Test Guru. <%= t '.heading' %>
+  <% end %>
+  <div class='nav'>
+    <span class='navbar-text'><%= t 'welcome_html', email: current_user.email %></span>
+    <%= link_to t(:log_out), destroy_user_session_path, method: :delete, class: 'nav-item nav-link' %>
   </div>
-</header>
+</nav>

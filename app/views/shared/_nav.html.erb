@@ -1,25 +1,12 @@
-<header class='header'>
-  <div class='container'>
-    <nav class='nav'>
-    <%= link_to 'Test Guru', root_path, class: 'nav__logo' %>
-      <ul class='nav__list'>
-        <% unless user_signed_in? %>
-          <li class='nav__item'>
-            <%= link_to t(:sign_up), new_user_registration_path %>
-          </li>
-          <li class='nav__item'>
-            <%= link_to t(:log_in), new_user_session_path %>
-          </li>
-        <% end %>
-        <% if user_signed_in? %>
-          <li class='nav__item'>
-            <span><%= t 'welcome_html', email: current_user.email %></span>
-          </li>
-          <li class='nav__item'>
-            <%= link_to t(:log_out), destroy_user_session_path, method: :delete %>
-          </li>
-        <% end %>
-      </ul>
-    </nav>
+<nav class='navbar navbar-light bg-light'>
+  <%= link_to 'Test Guru', root_path, class: 'navbar-brand' %>
+  <div class='nav'>
+    <% if user_signed_in? %>
+        <span class='navbar-text'><%= t 'welcome_html', email: current_user.email %></span>
+        <%= link_to t(:log_out), destroy_user_session_path, method: :delete, class: 'nav-item nav-link' %>
+    <% else %>
+      <%= link_to t(:sign_up), new_user_registration_path, class: 'nav-item nav-link' %>
+      <%= link_to t(:log_in), new_user_session_path, class: 'nav-item nav-link' %>
+    <% end %>
   </div>
-</header>
+</nav>
