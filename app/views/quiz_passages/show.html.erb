@@ -1,21 +1,23 @@
-<h1><%= t '.title', name: @quiz_passage.quiz.title %></h1>
-<p>
-  <%= t '.question' %>
-  <b><%= @quiz_passage.current_question.position %></b>
-  <%= t '.out_of' %>
-  <b><%= @quiz_passage.quiz.questions.count %></b>
-</p>
-  <%= @quiz_passage.current_question.body %>
-</b>
+<h1 class='mb-4'><%= t '.title', name: @quiz_passage.quiz.title %></h1>
+<div class='card'>
+  <div class='card-header'>
+      <%= t '.question_html', position: @quiz_passage.current_question.position, total: @quiz_passage.quiz.questions.count %>
+  </div>
+  <div class='card-body'>
+    <h4 class='card-title mb-4'>
+      <%= @quiz_passage.current_question.body %>
+    </h4>
 
-<%= form_with url: quiz_passage_path(@quiz_passage), local: true, method: :put do |form| %>
-  <%= form.collection_check_boxes :answer_ids, @quiz_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
-    <p>
-      <%= b.label do %>
-        <%= b.check_box %>
-        <%= b.object.body %>
+    <%= form_with url: quiz_passage_path(@quiz_passage), local: true, method: :put do |form| %>
+      <%= form.collection_check_boxes :answer_ids, @quiz_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
+        <div class='form-group'>
+          <%= b.label  do %>
+            <%= b.check_box %>
+            <%= b.object.body %>
+          <% end %>
+        </div>
       <% end %>
-    </p>
-  <% end %>
-  <%= form.submit t '.next' %>
-<% end %>
+      <%= form.submit t('.next'), class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

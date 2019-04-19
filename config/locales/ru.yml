@@ -42,8 +42,7 @@ ru:
   quiz_passages:
     show:
       title: 'Тест: %{name}'
-      question: 'Вопрос'
-      out_of: 'из'
+      question_html: 'Вопрос <b>%{position}</b> из <b>%{total}</b>'
       next: 'Далее'
     result:
       title: 'Вы закончили "%{name}" тест!'

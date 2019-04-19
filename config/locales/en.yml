@@ -42,8 +42,7 @@ en:
   quiz_passages:
     show:
       title: 'Passing the %{name} Quiz'
-      question: 'Question'
-      out_of: 'out of'
+      question_html: 'Question <b>%{position}</b> out of <b>%{total}</b>'
       next: 'Next'
     result:
       title: 'You finished "%{name}" test!'

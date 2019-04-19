@@ -1,9 +1,9 @@
-<h1><%= t '.title', name: @quiz_passage.quiz.title %></h1>
+<h2><%= t '.title', name: @quiz_passage.quiz.title %></h2>
 <hr>
 <% successful = @quiz_passage.successful? %>
-<p class="quiz__result">
+<p>
   <%= t '.score' %>
-  <span class="quiz__score quiz__score--<%= successful ? 'success' : 'fail' %>">
+  <span class="text-<%= successful ? 'success' : 'danger' %>">
     <%= number_to_percentage(@quiz_passage.score, precision: 0) %>
   </span>
 </p>
@@ -12,4 +12,4 @@
   <%= successful ? t('.success') : t('.failure') %>
 </p>
 
-<%= link_to t('back'), quizzes_path %>
+<%= link_to t('back'), quizzes_path, class: 'btn btn-link' %>
