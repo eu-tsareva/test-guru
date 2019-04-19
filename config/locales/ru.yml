@@ -67,7 +67,7 @@ ru:
         heading: 'Стань Гуру'
     sessions:
       new:
-        heading: 'Войти во врата Гуру!'
+        heading: 'Войди во врата Гуру!'
         enter: 'Войти'
         remember_me: 'Запомнить меня'
     shared:
