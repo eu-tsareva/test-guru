@@ -82,6 +82,9 @@ ru:
     create:
       hello: 'Здравствуй, %{name}!'
 
+  gist:
+    question: 'Вопрос по теме %{quiz_title} из TestGuru'
+
 
 
 

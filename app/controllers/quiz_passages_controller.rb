@@ -22,13 +22,8 @@ class QuizPassagesController < ApplicationController
 
   def gist
     result = GistQuestionService.new(@quiz_passage.current_question).call
-    flash_options =
-      if result.success?
-        { notice: t('.success') }
-      else
-        { alert: t('.failure') }
-      end
-    redirect_to @quiz_passage, flash_options
+
+    redirect_to @quiz_passage, notice: view_context.link_to('Gist URL', result.html_url, target: :_blank)
   end
 
   private

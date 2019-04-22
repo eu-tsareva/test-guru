@@ -81,3 +81,6 @@ en:
   sessions:
     create:
       hello: 'Hello, %{name}!'
+
+  gist:
+    question: 'A question about %{quiz_title} from TestGuru'
