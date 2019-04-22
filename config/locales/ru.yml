@@ -42,8 +42,7 @@ ru:
   quiz_passages:
     show:
       title: 'Тест: %{name}'
-      question: 'Вопрос'
-      out_of: 'из'
+      question_html: 'Вопрос <b>%{position}</b> из <b>%{total}</b>'
       next: 'Далее'
     result:
       title: 'Вы закончили "%{name}" тест!'
@@ -68,8 +67,9 @@ ru:
         heading: 'Стань Гуру'
     sessions:
       new:
-        heading: 'Войти во врата Гуру!'
+        heading: 'Войди во врата Гуру!'
         enter: 'Войти'
+        remember_me: 'Запомнить меня'
     shared:
       links:
         forgot_pass: 'Забыли пароль?'
