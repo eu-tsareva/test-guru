@@ -43,12 +43,16 @@ en:
     show:
       title: 'Passing the %{name} Quiz'
       question_html: 'Question <b>%{position}</b> out of <b>%{total}</b>'
+      gist_question: 'Gist Question'
       next: 'Next'
     result:
       title: 'You finished "%{name}" test!'
       score: 'Your score is:'
       success: 'You Passed!'
       failure: 'You Failed!:('
+    gist:
+      success: 'Gist was successfully created!'
+      failure: 'An error occurred while saving gist'
   admin:
     quizzes:
       index:
