@@ -63,6 +63,10 @@ ru:
         heading: 'Редактирование теста'
       new:
         heading: 'Создание теста'
+    gists:
+      index:
+        question: 'Вопрос'
+        user: 'Email пользователя'
     nav:
       heading: 'Панель администратора'
   devise:

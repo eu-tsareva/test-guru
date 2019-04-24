@@ -1,0 +1,13 @@
+<h1 class='mb-4'> GISTS </h1>
+<table class='table table-bordered'>
+  <thead class='thead-dark'>
+    <tr>
+      <th scope="col"><%= t '.question' %></th>
+      <th scope="col">gist url</th>
+      <th scope="col"><%= t '.user' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @gists %>
+  </tbody>
+</table>

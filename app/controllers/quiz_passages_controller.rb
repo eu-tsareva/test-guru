@@ -22,6 +22,7 @@ class QuizPassagesController < ApplicationController
 
   def gist
     result = GistQuestionService.new(@quiz_passage.current_question).call
+    current_user.gists.create(question_id: @quiz_passage.current_question.id, url: result.html_url)
 
     redirect_to @quiz_passage, notice: view_context.link_to('Gist URL', result.html_url, target: :_blank)
   end

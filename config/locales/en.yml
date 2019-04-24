@@ -63,6 +63,10 @@ en:
         heading: 'Edit Test'
       new:
         heading: 'New Test'
+    gists:
+      index:
+        question: 'Question'
+        user: 'User Email'
     nav:
       heading: 'Admin Panel'
   devise:
