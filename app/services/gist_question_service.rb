@@ -9,6 +9,10 @@ class GistQuestionService
     @client.create_gist(gist_params)
   end
 
+  def success?
+    @client.last_response.status.to_s.start_with?('2')
+  end
+
   private
 
   def gist_params

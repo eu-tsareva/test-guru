@@ -21,10 +21,17 @@ class QuizPassagesController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@quiz_passage.current_question).call
-    current_user.gists.create(question_id: @quiz_passage.current_question.id, url: result.html_url)
+    gist_service = GistQuestionService.new(@quiz_passage.current_question)
+    response = gist_service.call
 
-    redirect_to @quiz_passage, notice: view_context.link_to('Gist URL', result.html_url, target: :_blank)
+    if gist_service.success?
+      current_user.gists.create(question_id: @quiz_passage.current_question.id, url: response.html_url)
+      flash_msg = { notice: view_context.link_to('Gist URL', response.html_url, target: :_blank) }
+    else
+      flash_msg = { alert: 'There was an error!' }
+    end
+
+    redirect_to @quiz_passage, flash_msg
   end
 
   private
