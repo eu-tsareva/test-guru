@@ -35,6 +35,11 @@ gem 'rails-i18n'
 # UI
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
+
+# Networking
+gem 'faraday'
+gem "octokit", "~> 4.0"
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -49,6 +54,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'dotenv-rails', '~> 2.7', '>= 2.7.2'
 end
 
 group :development do
