@@ -1,14 +1,14 @@
 <h1 class='mb-4'><%= t '.heading' %></h1>
 <table class='table table-bordered'>
-  <thead class='thead-dark'>
-    <tr>
-      <th scope="col"><%= t 'quizzes.title' %></th>
-      <th scope="col"><%= t 'quizzes.level' %></th>
-      <th scope="col"><%= t 'quizzes.questions' %></th>
-      <th scope="col"><%= t :actions %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render @quizzes %>
-  </tbody>
+  <tr>
+    <th scope='col' class='sort-by-title pointer'>
+      <%= t 'quizzes.title' %>
+      <%= octicon 'arrow-up', class: 'text-success hide' %>
+      <%= octicon 'arrow-down', class: 'text-success hide' %>
+    </th>
+    <th scope='col'><%= t 'quizzes.level' %></th>
+    <th scope='col'><%= t 'quizzes.questions' %></th>
+    <th scope='col'><%= t :actions %></th>
+  </tr>
+  <%= render @quizzes %>
 </table>
