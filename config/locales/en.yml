@@ -5,6 +5,7 @@ en:
   show: 'Show'
   edit: 'Edit'
   delete: 'Delete'
+  cancel: 'Cancel'
   confirm: 'Are you sure?'
   sign_up: 'Sign up'
   log_in: 'Log in'
