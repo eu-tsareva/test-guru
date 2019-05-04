@@ -1,5 +1,8 @@
 <h1><%= t '.heading' %></h1>
 <p><%= link_to t(:new), new_admin_quiz_path %></p>
+
+<%= render 'shared/errors', resource: @quiz %>
+
 <table class="table">
   <tr>
     <th class="sort-by-title pointer">

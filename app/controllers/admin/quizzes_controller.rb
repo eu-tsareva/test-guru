@@ -1,8 +1,8 @@
 class Admin::QuizzesController < Admin::BaseController
-  before_action :set_quiz, only: %i[show edit update destroy start]
+  before_action :set_quiz, only: %i[show edit update destroy update_inline]
+  before_action :set_quizzes, only: %i[index update_inline]
 
   def index
-    @quizzes = Quiz.all
   end
 
   def new
@@ -26,6 +26,14 @@ class Admin::QuizzesController < Admin::BaseController
     end
   end
 
+  def update_inline
+    if @quiz.update(quiz_params)
+      redirect_to admin_quizzes_path(@quiz)
+    else
+      render :index
+    end
+  end
+
   def destroy
     @quiz.destroy
     redirect_to admin_quizzes_path
@@ -35,6 +43,10 @@ class Admin::QuizzesController < Admin::BaseController
 
   def set_quiz
     @quiz = Quiz.find(params[:id])
+  end
+
+  def set_quizzes
+    @quizzes = Quiz.all
   end
 
   def quiz_params

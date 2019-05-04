@@ -1,0 +1,8 @@
+<%= form_with model: [:admin, quiz],
+              url: update_inline_admin_quiz_path(quiz),
+              local: true,
+              class: 'form-inline hide',
+              data: { quiz_id: quiz.id } do |form| %>
+  <%= form.text_field :title, class: 'form-control mr-2' %>
+  <%= form.submit class: 'btn btn-primary' %>
+<% end %>

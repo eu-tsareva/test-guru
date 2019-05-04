@@ -1,13 +1,21 @@
 <tr>
-  <td><%= quiz.title %></td>
-  <td><%= quiz.level %></td>
-  <td><%= quiz.questions.count %></td>
-  <td><%= link_to t(:show), admin_quiz_path(quiz) %></td>
-  <td><%= link_to t(:edit), edit_admin_quiz_path(quiz) %></td>
-  <td>
+  <td class='align-middle'>
+    <%= content_tag :span, quiz.title, class: 'quiz-title', data: { quiz_id: quiz.id } %>
+    <%= render 'form_inline', quiz: quiz == @quiz ? @quiz : quiz %>
+  </td class='align-middle'>
+  <td class='align-middle'><%= quiz.level %></td class='align-middle'>
+  <td class='align-middle'><%= quiz.questions.count %></td class='align-middle'>
+  <td class='align-middle'><%= link_to t(:show), admin_quiz_path(quiz) %></td class='align-middle'>
+  <td class='align-middle'>
+    <%= link_to t(:edit),
+                edit_admin_quiz_path(quiz),
+                data: { quiz_id: quiz.id  },
+                class: 'form-inline-link' %>
+  </td class='align-middle'>
+  <td class='align-middle'>
     <%= link_to t(:delete),
                 admin_quiz_path(quiz),
                 'data-confirm': t(:confirm),
                 'data-method': :delete %>
-  </td>
+  </td class='align-middle'>
 </tr>

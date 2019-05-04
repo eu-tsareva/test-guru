@@ -1,0 +1,40 @@
+document.addEventListener('turbolinks:load', function() {
+  var controls = document.querySelectorAll('.form-inline-link')
+
+  if (controls.length) {
+    for (var i = 0; i < controls.length; i++) {
+      controls[i].addEventListener('click', formInlineLinkHandler)
+    }
+
+    var errors = document.querySelector('.resource-errors')
+
+    if (errors) {
+      var resourceId = errors.dataset.resourceId
+      formInlineHandler(resourceId)
+    }
+  }
+
+});
+
+function formInlineLinkHandler(event) {
+  event.preventDefault()
+
+  var quizId = this.dataset.quizId
+  formInlineHandler(quizId)
+}
+
+function formInlineHandler(quizId) {
+  var link = document.querySelector('.form-inline-link[data-quiz-id="' + quizId +'"]')
+  var quizTitle = document.querySelector('.quiz-title[data-quiz-id="' + quizId +'"]')
+  var formInline = document.querySelector('.form-inline[data-quiz-id="' + quizId +'"]')
+
+  if (formInline.classList.contains('hide')) {
+    quizTitle.classList.add('hide')
+    formInline.classList.remove('hide')
+    link.textContent = "<%= I18n.t('cancel') %>"
+  } else {
+    quizTitle.classList.remove('hide')
+    formInline.classList.add('hide')
+    link.textContent = "<%= I18n.t('edit') %>"
+  }
+}
