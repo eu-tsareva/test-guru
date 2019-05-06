@@ -1,5 +1,4 @@
 
-user = User.create email: 'user@email.com', password: '123456'
 admin = Admin.create email: 'admin@email.com', password: '123456', first_name: 'admin', last_name: 'admin'
 
 categories = Category.create([
