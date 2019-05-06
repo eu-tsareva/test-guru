@@ -13,6 +13,7 @@ class Quiz < ApplicationRecord
     joins(:category)
       .where(categories: { title: title })
   end)
+  scope :valid, -> { joins(questions: :answers).group(:id) }
 
   validates :title, presence: true
   validates :title, uniqueness: { scope: :level }

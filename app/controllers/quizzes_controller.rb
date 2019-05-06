@@ -2,7 +2,7 @@ class QuizzesController < ApplicationController
   before_action :set_quiz, only: %i[start]
 
   def index
-    @quizzes = Quiz.all
+    @quizzes = Quiz.valid
   end
 
   def start
