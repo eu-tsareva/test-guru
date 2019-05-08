@@ -72,6 +72,12 @@ en:
       index:
         question: 'Question'
         user: 'User Email'
+    badges:
+      index:
+        heading: 'Badges'
+      title: 'Title'
+      image: 'Image'
+      rule: 'Rule'
     nav:
       heading: 'Admin Panel'
   devise:

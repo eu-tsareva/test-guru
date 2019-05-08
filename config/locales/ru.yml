@@ -72,6 +72,12 @@ ru:
       index:
         question: 'Вопрос'
         user: 'Email пользователя'
+    badges:
+      index:
+        heading: 'Бейджи'
+      title: 'Название'
+      image: 'Изображение'
+      rule: 'Правило'
     nav:
       heading: 'Панель администратора'
   devise:
