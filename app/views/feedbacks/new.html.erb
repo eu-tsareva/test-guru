@@ -1,0 +1,15 @@
+<h1 class='mb-3'><%= t('.heading') %></h1>
+<div class='row'>
+  <div class='col col-md-5'>
+    <%= form_with model:  @feedback, local: true do |form| %>
+      <div class='form-group'>
+        <%= render 'shared/errors', resource: @feedback %>
+        <p>
+          <%= form.label :text %><br>
+          <%= form.text_area :text, class: 'form-control', required: true, rows: 10 %>
+        </p>
+        <p><%= form.submit class: 'btn btn-primary' %></p>
+      </div>
+    </div>
+  </div>
+<% end %>

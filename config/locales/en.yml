@@ -24,10 +24,14 @@ en:
         remember_me: 'Remember me'
         first_name: 'First name'
         last_name: 'Last name'
+      feedback:
+        text: 'Message'
     submit:
       quiz:
         create: 'Create Test'
         update: 'Update Test'
+      feedback:
+        create: 'Send'
     select:
       prompt: 'Please select'
 
@@ -89,3 +93,7 @@ en:
 
   gist:
     question: 'A question about %{quiz_title} from TestGuru'
+
+  feedbacks:
+    new:
+      heading: 'Feedback'

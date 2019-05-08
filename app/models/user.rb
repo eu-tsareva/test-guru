@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :quiz_passages
   has_many :quizzes, through: :quiz_passages
   has_many :gists
+  has_many :feedbacks
 
   def quizzes_by_level(level)
     quizzes.where(level: level)
