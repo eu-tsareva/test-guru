@@ -26,12 +26,18 @@ ru:
         last_name: 'Фамилия'
       feedback:
         text: 'Сообщение'
+      badge:
+        title: 'Название'
+        image: 'Изображение'
+        rule: 'Правило'
     submit:
       quiz:
         create: 'Создать тест'
         update: 'Обновить тест'
       feedback:
         create: 'Отправить'
+      badge:
+        create: 'Создать бейдж'
     select:
       prompt: 'Выберите'
 
@@ -75,6 +81,10 @@ ru:
     badges:
       index:
         heading: 'Бейджи'
+      new:
+        heading: 'Создание бейджа'
+      edit:
+        heading: 'Редактирование бейджа'
       title: 'Название'
       image: 'Изображение'
       rule: 'Правило'

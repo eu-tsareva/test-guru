@@ -26,12 +26,18 @@ en:
         last_name: 'Last name'
       feedback:
         text: 'Message'
+      badge:
+        title: 'Title'
+        image: 'Image'
+        rule: 'Rule'
     submit:
       quiz:
         create: 'Create Test'
         update: 'Update Test'
       feedback:
         create: 'Send'
+      badge:
+        create: 'Create Badge'
     select:
       prompt: 'Please select'
 
@@ -75,6 +81,10 @@ en:
     badges:
       index:
         heading: 'Badges'
+      new:
+        heading: 'New Badge'
+      edit:
+        heading: 'Edit Badge'
       title: 'Title'
       image: 'Image'
       rule: 'Rule'

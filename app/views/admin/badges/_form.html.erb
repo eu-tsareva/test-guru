@@ -1,0 +1,21 @@
+<div class='row'>
+  <div class='col col-md-6'>
+    <%= form_with model: [:admin, @badge], local: true do |form| %>
+      <div class='form-group'>
+        <%= render 'shared/errors', resource: @badge %>
+        <p class='mb-4'>
+          <%= form.label :title %><br>
+          <%= form.text_field :title, class: 'form-control', required: true %>
+        </p>
+        <p class='mb-5'>
+          <label class='d-block'><%= t 'admin.badges.image' %></label>
+          <% images = [['badge1.svg'] ,['badge2.svg'], ['badge3.svg']] %>
+          <%= form.collection_radio_buttons(:image, images, :first, :first, { checked: @badge.image || images.first }) do |b| %>
+            <%= b.label(class: 'text-center mr-4') { image_tag(b.text, width: '80', class: 'd-block mb-2') + b.radio_button } %>
+          <% end %>
+        </p>
+        <p><%= form.submit class: 'btn btn-primary' %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
