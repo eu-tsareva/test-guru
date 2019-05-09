@@ -27,10 +27,8 @@ ActiveRecord::Schema.define(version: 2019_05_08_102547) do
   create_table "badges", force: :cascade do |t|
     t.string "title", null: false
     t.string "image", null: false
-    t.bigint "rule_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["rule_id"], name: "index_badges_on_rule_id"
   end
 
   create_table "badges_users", id: false, force: :cascade do |t|
@@ -99,8 +97,10 @@ ActiveRecord::Schema.define(version: 2019_05_08_102547) do
   create_table "rules", force: :cascade do |t|
     t.string "attr", null: false
     t.string "value", null: false
+    t.bigint "badge_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["badge_id"], name: "index_rules_on_badge_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -129,6 +129,6 @@ ActiveRecord::Schema.define(version: 2019_05_08_102547) do
     t.index ["type"], name: "index_users_on_type"
   end
 
-  add_foreign_key "badges", "rules"
   add_foreign_key "feedbacks", "users"
+  add_foreign_key "rules", "badges"
 end

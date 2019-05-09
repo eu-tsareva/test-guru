@@ -30,6 +30,8 @@ en:
         title: 'Title'
         image: 'Image'
         rule: 'Rule'
+        rule_type: 'Rule type'
+        rule_value: 'Rule Value'
     submit:
       quiz:
         create: 'Create Test'
@@ -88,6 +90,11 @@ en:
       title: 'Title'
       image: 'Image'
       rule: 'Rule'
+    rules:
+      category: 'Category'
+      level: 'Level'
+      score: 'Score not less(%)'
+      attempts: 'Attempts'
     nav:
       heading: 'Admin Panel'
   devise:

@@ -1,7 +1,7 @@
 <tr>
   <td><%= badge.title %></td>
   <td><%= image_tag badge.image %></td>
-  <td><%= badge.rule %></td>
+  <td><%= badge.rule&.text %></td>
   <td><%= link_to t(:edit), edit_admin_badge_path(badge) %></td>
   <td>
     <%= link_to t(:delete),

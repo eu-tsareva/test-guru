@@ -11,10 +11,11 @@ class Admin::BadgesController < Admin::BaseController
 
   def create
     @badge = Badge.new(badge_params)
-    rule = Rule.create(attr: 'test', value: 'test')
-    @badge.rule_id = rule.id
 
     if @badge.save
+      @badge.create_rule(
+        attr: params[:badge][:rule_type],
+        value: params[:badge][:rule_value])
       redirect_to admin_badges_path
     else
       render :new

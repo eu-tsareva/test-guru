@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     end
     resources :gists, only: %i[index]
     resources :badges
+    get '/rule_values', to: 'rules#values'
   end
 
   resources :feedbacks, only: %i[new create]

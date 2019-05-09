@@ -30,6 +30,8 @@ ru:
         title: 'Название'
         image: 'Изображение'
         rule: 'Правило'
+        rule_type: 'Аттрибут'
+        rule_value: 'Значение'
     submit:
       quiz:
         create: 'Создать тест'
@@ -88,6 +90,11 @@ ru:
       title: 'Название'
       image: 'Изображение'
       rule: 'Правило'
+    rules:
+      category: 'Категория'
+      level: 'Уровень'
+      score: 'Баллов не меньше(%)'
+      attempts: 'Попытки'
     nav:
       heading: 'Панель администратора'
   devise:

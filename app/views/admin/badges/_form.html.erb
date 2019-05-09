@@ -7,15 +7,32 @@
           <%= form.label :title %><br>
           <%= form.text_field :title, class: 'form-control', required: true %>
         </p>
-        <p class='mb-5'>
+        <p class='mb-4'>
           <label class='d-block'><%= t 'admin.badges.image' %></label>
           <% images = [['badge1.svg'] ,['badge2.svg'], ['badge3.svg']] %>
           <%= form.collection_radio_buttons(:image, images, :first, :first, { checked: @badge.image || images.first }) do |b| %>
             <%= b.label(class: 'text-center mr-4') { image_tag(b.text, width: '80', class: 'd-block mb-2') + b.radio_button } %>
           <% end %>
         </p>
-        <p><%= form.submit class: 'btn btn-primary' %></p>
       </div>
+      <fieldset class='form-group'>
+        <legend><%= t 'admin.badges.rule' %></legend>
+        <p>
+          <%= form.label :rule_type %>
+          <% types = Rule::TYPES.map { |type| [type, t(type, scope: %i[admin rules])] } %>
+          <% selected = @badge.new_record? ? types.first[0] : @badge.rule.attr %>
+          <%= form.collection_select :rule_type, types, :first, :last, { selected: selected }, { class: 'custom-select'} %>
+        </p>
+        <p>
+          <%= form.label :rule_value %>
+          <% values = Rule.values_by_type(Rule::TYPES.first) %>
+          <% selected = @badge.new_record? ? values.first[0] : @badge.rule.value %>
+          <%= form.collection_select :rule_value, values, :first, :last, { selected: selected }, { class: 'custom-select'} %>
+        </p>
+      </fieldset>
+      <p><%= form.submit class: 'btn btn-primary' %></p>
     </div>
   </div>
 <% end %>
+
+
