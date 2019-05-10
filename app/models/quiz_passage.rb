@@ -1,11 +1,12 @@
 class QuizPassage < ApplicationRecord
-  PASSING_SCORE = 85
+  PASSING_SCORE = 75
 
   belongs_to :quiz
   belongs_to :user
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  before_validation :before_validation_set_question, on: [:create, :update]
+  before_validation :before_validation_set_question, on: %i[create update]
+
 
   def accept!(answer_ids)
     self.correct_questions += 1 if answer_ids && correct_answer?(answer_ids)
@@ -18,6 +19,17 @@ class QuizPassage < ApplicationRecord
 
   def successful?
     score >= PASSING_SCORE
+  end
+
+  def first_attempt?
+    user
+      .quiz_passages
+      .includes(:quiz)
+      .where(current_question: nil)
+      .where(quizzes: { id: quiz.id })
+      .select(&:successful?)
+      .count
+      .equal?(1)
   end
 
   def score

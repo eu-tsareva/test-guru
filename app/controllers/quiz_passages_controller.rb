@@ -9,6 +9,7 @@ class QuizPassagesController < ApplicationController
     @quiz_passage.accept!(params[:answer_ids])
 
     if @quiz_passage.completed?
+      RewardService.new(current_user).call if @quiz_passage.successful? && @quiz_passage.first_attempt?
       begin
         QuizzesMailer.completed_quiz(@quiz_passage).deliver_now
       rescue Net::SMTPAuthenticationError

@@ -16,11 +16,11 @@ class Rule < ApplicationRecord
   end
 
   def self.attempts_values
-    [[1, 1], [2, 2]]
+    [[1, 1], [3, 3], [5, 5]]
   end
 
   def self.score_values
-    [[75, 75], [90, 90] , [100, 100]]
+    [[75, 75], [90, 90], [100, 100]]
   end
 
   def text
