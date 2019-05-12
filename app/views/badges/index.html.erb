@@ -1,6 +1,4 @@
-<h1><%= t '.heading' %></h1>
-<p><%= link_to t(:new), new_admin_badge_path %></p>
-
+<h1 class='mb-4'><%= t '.heading' %></h1>
 <table class="table">
   <tr>
     <th class="sort-by-title pointer">
@@ -9,8 +7,8 @@
       <%= octicon 'arrow-down', class: 'text-success hide' %>
     </th>
     <th><%= t 'badges.image' %></th>
-    <th><%= t 'badges.rule' %></th>
-    <th colspan='2'><%= t :actions %></th>
+    <th><%= t 'badges.achieved' %></th>
+    <th><%= t 'badges.number' %></th>
   </tr>
   <%= render @badges %>
 </table>

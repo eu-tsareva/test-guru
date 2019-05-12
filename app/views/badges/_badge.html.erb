@@ -1,0 +1,15 @@
+<% achieved = badge.in?(@my_badges) %>
+<tr>
+  <td>
+    <%= badge.title %>
+  </td>
+  <td class="<%='opaque' unless achieved %>">
+    <%= image_tag badge.image, class: 'badge-img' %>
+  </td>
+  <td>
+    <%= check_box_tag :achieved, :achieved, achieved %>
+  </td>
+  <td>
+    <%= @my_badges.group(:id).count[badge.id] %>
+  </td>
+</tr>

@@ -7,6 +7,7 @@
           <%= image_tag 'admin.svg', width: 20, height: 20 %>
         <% end %>
       <% end %>
+      <%= link_to t('.my_badges'), badges_path, class: 'nav-link' %>
     </div>
     <div class='nav'>
       <% if user_signed_in? %>

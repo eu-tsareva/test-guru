@@ -15,7 +15,7 @@ class QuizPassagesController < ApplicationController
       rescue Net::SMTPAuthenticationError
         flash_msg = { alert: 'Gmail authentication error' }
       end
-      redirect_to result_quiz_passage_path(@quiz_passage), flash_msg || {}
+    redirect_to result_quiz_passage_path(@quiz_passage), flash_msg || {}
     else
       render :show
     end

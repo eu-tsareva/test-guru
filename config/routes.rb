@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :badges, only: :index
+
   namespace :admin do
     resources :quizzes do
       resources :questions, shallow: true, except: :index do

@@ -31,19 +31,19 @@ class RewardService
       QuizPassage
       .includes(:quiz)
       .where(user_id: @current_user.id, current_question_id: nil)
-      .where(quizzes: { category: category })
+      .where(quizzes: { category_id: category })
       .select(&:successful?)
       .pluck(:quiz_id)
       .sort
       .uniq
-    quizzes_passed == Quiz.where(category: category).order(:id).pluck(:id)
+    quizzes_passed == Quiz.where(category_id: category).order(:id).pluck(:id)
   end
 
   def score_condition_satisfied?(score)
     quizzes_passed =
       QuizPassage
       .where(user_id: @current_user.id, current_question_id: nil)
-      .select { |qp| qp.score >= score }
+      .select { |qp| qp.score.to_i >= score.to_i }
       .pluck(:quiz_id)
       .sort
       .uniq
@@ -57,8 +57,13 @@ class RewardService
       .where(user_id: @current_user.id, current_question_id: nil)
       .order(:created_at)
       .group_by(&:quiz_id)
-      .select { |_q_id, q_passages| q_passages.index(&:successful?).to_i.between?(1, attempts) }
+      .select do |_q_id, q_passages|
+        index = q_passages.index(&:successful?)
+        !index.nil? && index < attempts.to_i
+      end
       .keys
+      .sort
+    p quizzes_passed
     quizzes_passed == Quiz.all.order(:id).pluck(:id)
   end
 
