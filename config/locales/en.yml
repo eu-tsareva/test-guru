@@ -18,6 +18,7 @@ en:
         title: 'Title'
         level: 'Level'
         category: 'Category'
+        time: 'Time (min)'
       user:
         password: 'Password'
         password_confirmation: 'Password confirmation'
@@ -48,6 +49,8 @@ en:
     level: 'Level'
     category: 'Category'
     questions: 'Questions'
+    time: 'Time (min)'
+    time_unlimited: 'No limit'
     index:
       heading: 'Tricky Tests'
     quiz:

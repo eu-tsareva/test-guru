@@ -2,5 +2,6 @@
   <th scope="row"><%= quiz.title %></th>
   <td><%= quiz.level %></td>
   <td><%= quiz.questions.count %></td>
+  <td><%= quiz.time || t('quizzes.time_unlimited') %></td>
   <td><%= button_to t('.start'), start_quiz_path(quiz), class: 'btn btn-info' %></td>
 </tr>

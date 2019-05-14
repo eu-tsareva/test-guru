@@ -15,6 +15,10 @@
           <%= form.label :category %><br>
           <%= form.collection_select :category_id, Category.all, :id, :title, { prompt: true }, { class: 'custom-select'} %>
         </p>
+        <p>
+          <%= form.label :time %><br>
+          <%= form.number_field :time, class: 'form-control' %>
+        </p>
         <p><%= form.submit class: 'btn btn-primary' %></p>
       </div>
     </div>

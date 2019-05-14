@@ -50,6 +50,6 @@ class Admin::QuizzesController < Admin::BaseController
   end
 
   def quiz_params
-    params.require(:quiz).permit(:title, :level, :category_id, :creator_id)
+    params.require(:quiz).permit(:title, :level, :category_id, :time)
   end
 end
