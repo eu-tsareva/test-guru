@@ -5,6 +5,7 @@
   </td class='align-middle'>
   <td class='align-middle'><%= quiz.level %></td class='align-middle'>
   <td class='align-middle'><%= quiz.questions.count %></td class='align-middle'>
+  <td class='align-middle'><%= quiz.time || t('quizzes.time_unlimited') %></td class='align-middle'>
   <td class='align-middle'><%= link_to t(:show), admin_quiz_path(quiz) %></td class='align-middle'>
   <td class='align-middle'>
     <%= link_to t(:edit),

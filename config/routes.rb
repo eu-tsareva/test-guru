@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :quiz_passages, only: %i[show update] do
     member do
       get :result
+      get :finish
       post :gist
     end
   end

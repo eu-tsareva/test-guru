@@ -1,4 +1,17 @@
-<h1 class='mb-4'><%= t '.title', name: @quiz_passage.quiz.title %></h1>
+<div class='row'>
+  <div class='col-md-6'>
+    <h1 class='mb-4'><%= t '.title', name: @quiz_passage.quiz.title %></h1>
+  </div>
+  <% if @quiz_passage.quiz.time %>
+    <div class='col-md-6 text-right'>
+      <div class='timer text-success'>
+        <span class='timer-min'><%= minutes_format @quiz_passage.time_left %></span>
+        <span>:</span>
+        <span class='timer-sec'><%= seconds_format @quiz_passage.time_left %></span>
+      </div>
+    </div>
+  <% end %>
+</div>
 <div class='card'>
   <div class='card-header'>
     <div class='mb-2'>

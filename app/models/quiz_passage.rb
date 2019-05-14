@@ -38,11 +38,21 @@ class QuizPassage < ApplicationRecord
     ((current_question.position - 1) * 100.0 / quiz.questions.count).round(1)
   end
 
+  def time_left
+    return unless quiz.time
+
+    created_at + quiz.time * 60 - Time.current
+  end
+
+  def out_of_time
+    quiz.time && time_left <= 0
+  end
+
   private
 
   def before_validation_set_question
     self.current_question = next_question
-    self.passed = true if completed? && successful?
+    self.passed = true if successful?
   end
 
   def correct_answer?(answer_ids)

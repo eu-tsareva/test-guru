@@ -1,5 +1,5 @@
 class QuizPassagesController < ApplicationController
-  before_action :set_quiz_passage, only: %i[show update result gist]
+  before_action :set_quiz_passage, only: %i[show update result gist finish]
 
   def show
 
@@ -8,14 +8,8 @@ class QuizPassagesController < ApplicationController
   def update
     @quiz_passage.accept!(params[:answer_ids])
 
-    if @quiz_passage.completed?
-      RewardService.new(current_user).call if @quiz_passage.successful? && @quiz_passage.first_attempt?
-      begin
-        QuizzesMailer.completed_quiz(@quiz_passage).deliver_now
-      rescue Net::SMTPAuthenticationError
-        flash_msg = { alert: 'Gmail authentication error' }
-      end
-      redirect_to result_quiz_passage_path(@quiz_passage), flash_msg || {}
+    if @quiz_passage.completed? || @quiz_passage.out_of_time
+      finish_quiz
     else
       render :show
     end
@@ -39,9 +33,25 @@ class QuizPassagesController < ApplicationController
     redirect_to @quiz_passage, flash_msg
   end
 
+  def finish
+    @quiz_passage.update(passed: true) if @quiz_passage.successful?
+
+    finish_quiz
+  end
+
   private
 
   def set_quiz_passage
     @quiz_passage = QuizPassage.find(params[:id])
+  end
+
+  def finish_quiz
+    RewardService.new(current_user).call if @quiz_passage.successful? && @quiz_passage.first_attempt?
+    begin
+      QuizzesMailer.completed_quiz(@quiz_passage).deliver_now
+    rescue Net::SMTPAuthenticationError
+      flash_msg = { alert: 'Gmail authentication error' }
+    end
+    redirect_to result_quiz_passage_path(@quiz_passage), flash_msg || {}
   end
 end
