@@ -1,0 +1,22 @@
+<div class='row'>
+  <div class='col-md-6'>
+    <h1 class='mb-4'><%= t '.heading' %></h1>
+  </div>
+  <div class='col-md-6 text-right'>
+    <h2><%= @my_badges.count %></h2>
+  </div>
+</div>
+
+<table class="table">
+  <tr>
+    <th class="sort-by-title pointer">
+      <%= t 'badges.title' %>
+      <%= octicon 'arrow-up', class: 'text-success hide' %>
+      <%= octicon 'arrow-down', class: 'text-success hide' %>
+    </th>
+    <th><%= t 'badges.image' %></th>
+    <th><%= t 'badges.achieved' %></th>
+    <th><%= t 'badges.number' %></th>
+  </tr>
+  <%= render @badges %>
+</table>

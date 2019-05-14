@@ -1,0 +1,12 @@
+<tr>
+  <td><%= badge.title %></td>
+  <td><%= image_tag badge.image, class: 'badge-img' %></td>
+  <td><%= badge.rule&.text %></td>
+  <td><%= link_to t(:edit), edit_admin_badge_path(badge) %></td>
+  <td>
+    <%= link_to t(:delete),
+                admin_badge_path(badge),
+                'data-confirm': t(:confirm),
+                'data-method': :delete %>
+  </td>
+</tr>

@@ -26,12 +26,20 @@ en:
         last_name: 'Last name'
       feedback:
         text: 'Message'
+      badge:
+        title: 'Title'
+        image: 'Image'
+        rule: 'Rule'
+        rule_type: 'Rule type'
+        rule_value: 'Rule Value'
     submit:
       quiz:
         create: 'Create Test'
         update: 'Update Test'
       feedback:
         create: 'Send'
+      badge:
+        create: 'Create Badge'
     select:
       prompt: 'Please select'
 
@@ -58,6 +66,14 @@ en:
     gist:
       success: 'Gist was successfully created!'
       failure: 'An error occurred while saving gist'
+  badges:
+    title: 'Title'
+    image: 'Image'
+    rule: 'Rule'
+    achieved: 'Achieved'
+    number: 'Number'
+    index:
+      heading: 'My badges'
   admin:
     quizzes:
       index:
@@ -72,8 +88,22 @@ en:
       index:
         question: 'Question'
         user: 'User Email'
+    badges:
+      index:
+        heading: 'Badges'
+      new:
+        heading: 'New Badge'
+      edit:
+        heading: 'Edit Badge'
+    rules:
+      category: 'Category'
+      level: 'Level'
+      score: 'Score not less(%)'
+      attempts: 'Attempts'
     nav:
       heading: 'Admin Panel'
+      tests: 'Tests'
+      badges: 'Badges'
   devise:
     registrations:
       new:
@@ -90,10 +120,11 @@ en:
   sessions:
     create:
       hello: 'Hello, %{name}!'
-
   gist:
     question: 'A question about %{quiz_title} from TestGuru'
-
   feedbacks:
     new:
       heading: 'Feedback'
+  shared:
+    nav:
+      my_badges: 'My badges'

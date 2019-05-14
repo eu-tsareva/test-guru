@@ -26,12 +26,20 @@ ru:
         last_name: 'Фамилия'
       feedback:
         text: 'Сообщение'
+      badge:
+        title: 'Название'
+        image: 'Изображение'
+        rule: 'Правило'
+        rule_type: 'Аттрибут'
+        rule_value: 'Значение'
     submit:
       quiz:
         create: 'Создать тест'
         update: 'Обновить тест'
       feedback:
         create: 'Отправить'
+      badge:
+        create: 'Создать бейдж'
     select:
       prompt: 'Выберите'
 
@@ -58,6 +66,14 @@ ru:
     gist:
       success: 'Gist успешно сохранен'
       failure: 'Во время сохранения gist произошла ошибка'
+  badges:
+    title: 'Название'
+    image: 'Изображение'
+    rule: 'Правило'
+    achieved: 'Заработан'
+    number: 'Количество'
+    index:
+      heading: 'Мои бейджи'
   admin:
     quizzes:
       index:
@@ -72,8 +88,22 @@ ru:
       index:
         question: 'Вопрос'
         user: 'Email пользователя'
+    badges:
+      index:
+        heading: 'Бейджи'
+      new:
+        heading: 'Создание бейджа'
+      edit:
+        heading: 'Редактирование бейджа'
+    rules:
+      category: 'Категория'
+      level: 'Уровень'
+      score: 'Баллов не меньше(%)'
+      attempts: 'Попытки'
     nav:
       heading: 'Панель администратора'
+      tests: 'Тесты'
+      badges: 'Бейджи'
   devise:
     registrations:
       new:
@@ -90,14 +120,12 @@ ru:
   sessions:
     create:
       hello: 'Здравствуй, %{name}!'
-
   gist:
     question: 'Вопрос по теме %{quiz_title} из TestGuru'
-
   feedbacks:
     new:
       heading: 'Обратная связь'
-
-
-
+  shared:
+    nav:
+      my_badges: 'Мои бейджи'
 

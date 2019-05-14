@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :badges, only: :index
+
   namespace :admin do
     resources :quizzes do
       resources :questions, shallow: true, except: :index do
@@ -25,6 +27,8 @@ Rails.application.routes.draw do
       patch :update_inline, on: :member
     end
     resources :gists, only: %i[index]
+    resources :badges
+    get '/rule_values', to: 'rules#values'
   end
 
   resources :feedbacks, only: %i[new create]
