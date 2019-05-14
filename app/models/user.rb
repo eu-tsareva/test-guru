@@ -22,6 +22,10 @@ class User < ApplicationRecord
     quiz_passages.order(id: :desc).find_by(quiz_id: quiz.id)
   end
 
+  def completed_quizzes
+    quizzes.where(quiz_passages: { passed: true })
+  end
+
   def admin?
     is_a?(Admin)
   end

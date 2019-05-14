@@ -7,6 +7,7 @@ class QuizPassage < ApplicationRecord
 
   before_validation :before_validation_set_question, on: %i[create update]
 
+  scope :passed, -> { where(passed: true) }
 
   def accept!(answer_ids)
     self.correct_questions += 1 if answer_ids && correct_answer?(answer_ids)
@@ -23,11 +24,8 @@ class QuizPassage < ApplicationRecord
 
   def first_attempt?
     user
-      .quiz_passages
-      .includes(:quiz)
-      .where(current_question: nil)
+      .completed_quizzes
       .where(quizzes: { id: quiz.id })
-      .select(&:successful?)
       .count
       .equal?(1)
   end
@@ -44,6 +42,7 @@ class QuizPassage < ApplicationRecord
 
   def before_validation_set_question
     self.current_question = next_question
+    self.passed = true if completed? && successful?
   end
 
   def correct_answer?(answer_ids)
